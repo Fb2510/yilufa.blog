@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="pixel">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>翻墙网络提示证书无效怎么办？先查时间、域名与签发者 · 一路發机场测评</title>
+<meta name="description" content="翻墙网络遇到证书无效如何排查？以 Firefox 错误页面为例，检查时间、域名和签发者，区分单站与多站故障，避免靠跳过验证或升级便宜机场套餐解决。">
+<meta name="keywords" content="翻墙网络,证书无效,HTTPS连接错误,便宜机场排障">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/">
+<meta property="og:title" content="翻墙网络提示证书无效怎么办？先查时间、域名与签发者">
+<meta property="og:description" content="翻墙网络遇到证书无效如何排查？以 Firefox 错误页面为例，检查时间、域名和签发者，区分单站与多站故障，避免靠跳过验证或升级便宜机场套餐解决。">
+<meta property="og:url" content="https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一路發机场测评">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg"><meta property="og:image:alt" content="一路發机场测评">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="翻墙网络提示证书无效怎么办？先查时间、域名与签发者">
+<meta name="twitter:description" content="翻墙网络遇到证书无效如何排查？以 Firefox 错误页面为例，检查时间、域名和签发者，区分单站与多站故障，避免靠跳过验证或升级便宜机场套餐解决。">
+<meta name="twitter:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<meta name="author" content="一路發"><meta property="article:published_time" content="2026-10-11T09:01:07&#43;08:00"><meta property="article:modified_time" content="2026-10-11T09:01:52&#43;08:00"><meta property="article:tag" content="线路稳定性"><meta property="article:tag" content="网络延迟"><meta property="article:tag" content="AI 服务可用性"><meta property="article:tag" content="翻墙网络">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"一路發"},"dateModified":"2026-10-11T09:01:52+08:00","datePublished":"2026-10-11T09:01:07+08:00","description":"翻墙网络遇到证书无效如何排查？以 Firefox 错误页面为例，检查时间、域名和签发者，区分单站与多站故障，避免靠跳过验证或升级便宜机场套餐解决。","headline":"翻墙网络提示证书无效怎么办？先查时间、域名与签发者","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/","@type":"WebPage"},"url":"https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.yilufa.blog/","name":"一路發机场测评","position":1},{"@type":"ListItem","item":"https://www.yilufa.blog/posts/daily-2026-10-11-01-browser-certificate-error-check/","name":"翻墙网络提示证书无效怎么办？先查时间、域名与签发者","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/search.css"><script defer src="https://www.yilufa.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/layouts.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/effects.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/skin.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/reader.css">
+<link rel="icon" href="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/artalk.css"><script defer src="https://www.yilufa.blog/assets/theme/artalk.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/theme.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/reader.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/viewer.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://www.yilufa.blog/assets/theme/interactions.js"></script>
+
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W266BLZXHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W266BLZXHV');
+</script>
+
+<script defer src="https://www.yilufa.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-W266BLZXHV" data-site-hosts="www.yilufa.blog"></script></head>
+
+<body class="reader-page theme-pixel article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://www.yilufa.blog/"><img src="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg" alt="" width="38" height="38"><span>一路發机场测评</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.yilufa.blog/">首页</a><a href="https://www.yilufa.blog/categories/airport-selection/">机场选购</a><a href="https://www.yilufa.blog/categories/network-testing/">测速与排障</a><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a><a href="https://www.yilufa.blog/categories/ai-service-guides/">AI 服务指南</a></nav>
+<a class="search-toggle" href="https://www.yilufa.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="pixel-workspace theme-workspace theme-article">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.yilufa.blog/">一路發机场测评</a></li><li><span aria-current="page">翻墙网络提示证书无效怎么办？先查时间、域名与签发者</span></li></ol></nav>
+
+
+<div class="pixel-reading"><div class="pixel-document"><div class="pixel-window-bar"><span>阅读存档</span><span aria-hidden="true">▣</span></div><div class="pixel-document-body">
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>
+阅读存档</div>
+<h1 data-pagefind-meta="title">翻墙网络提示证书无效怎么办？先查时间、域名与签发者</h1>
+<div class="metadata" data-pagefind-ignore><span>一路發</span><time datetime="2026-10-11T09:01:07&#43;08:00">2026-10-11</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a></div>
+</header>
+<div class="prose"><p>浏览器提示“证书无效”，说明网站身份验证没有通过，不能据此判断节点速度。证书像网站的身份证，用于核对访问对象；HTTPS 则在验证身份后保护传输。排查翻墙网络时，应先找出报错原因，再测线路质量。</p>
+<h2 id="heading">留下错误代码和访问范围</h2>
+<p>以 Firefox 桌面版为例，点击错误页的“高级”查看代码，记录域名、时间、浏览器版本、节点及代理模式。只查看详情，不继续登录。再打开几个已知正常的 HTTPS 网站，区分单站异常与多个网站一起报错。分享记录时隐藏账户与订阅信息。</p>
+<p>还要确认错误来自浏览器还是代理客户端。两者验证的对象可能不同：<a href="https://curl.se/docs/sslcerts.html">curl 官方文档</a>明确区分 HTTPS 代理连接与目标网站连接的证书验证。客户端日志报错时，先核对对应服务器名称，不能直接套用浏览器错误码判断，也不要混改两边配置。</p>
+<h2 id="heading-1">时间错误先核对设备</h2>
+<p>证书有有效期，电脑时钟明显不准，可能把有效证书判断为过期或尚未生效。<a href="https://support.mozilla.org/en-US/kb/troubleshoot-time-errors-secure-websites">Mozilla 时间排障说明</a>建议核对日期、时间和时区。先与可靠时钟比较，纠正后重试原网址；时间正确却仍报过期，应联系网站方检查证书，而不是不断切换节点。</p>
+<h2 id="heading-2">域名与签发者分别检查</h2>
+<p>出现 <code>SSL_ERROR_BAD_CERT_DOMAIN</code>，表示证书不适用于正在访问的域名，见<a href="https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean">官方错误码说明</a>。先核对网址拼写及跳转后的地址，不凭熟悉的页面外观判断可信。</p>
+<p>签发者是颁发证书的机构。<code>SEC_ERROR_UNKNOWN_ISSUER</code> 表示浏览器无法信任签发者；可能涉及网站证书链，也可能与设备上的加密流量检查有关。<a href="https://support.mozilla.org/en-US/kb/error-codes-secure-websites">Mozilla 排障文档</a>区分单站与多站场景。公司设备交由管理员核实，不安装陌生证书，也不关闭证书验证来恢复访问。</p>
+<h2 id="heading-3">用对照缩小故障范围</h2>
+<p>保持设备和网址不变，仅换一个节点复查；再保持节点不变，对照另一台设备。记录证书错误是否重复出现。换节点后恢复，只能说明访问路径相关因素发生变化，不能证明原节点恶意，也不能证明新节点长期可靠。每轮只改变一项，结论才有依据。</p>
+<h2 id="heading-4">恢复后再评价套餐</h2>
+<p>证书验证正常后，节点速度看持续下载，线路稳定性看反复访问与长任务是否中断；网络延迟看往返等待。丢包指数据未按预期抵达，检查丢包表现需注明探测目标和路径，证书失败次数不能换算为丢包率。</p>
+<p>节点地区应核对实际出口与平台要求；流媒体解锁用具体影片验证，海外 AI 服务可用性用登录、问答和所需上传验证。证书正常只是访问条件之一，不代表这些功能全部可用。</p>
+<p>比较便宜机场的套餐价格，还要看额度、倍率及实际故障是否改善。若根因是设备时间或网站证书，增加流量通常无济于事。保留出错与恢复记录，再决定续费或换服务。</p>
+<p>资料核对日期：2026-10-11。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.yilufa.blog/tags/line-stability/"># 线路稳定性</a><a href="https://www.yilufa.blog/tags/network-latency/"># 网络延迟</a><a href="https://www.yilufa.blog/tags/ai-availability/"># AI 服务可用性</a><a href="https://www.yilufa.blog/tags/proxy-network/"># 翻墙网络</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.yilufa.blog/posts/daily-2026-10-11-02-single-multi-connection-speed-test/">← 上一篇</a><a href="https://www.yilufa.blog/posts/daily-2026-10-10-02-ai-streaming-response-interruption/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+</div></div><div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">留下错误代码和访问范围</a><a class="level-2" href="#heading-1">时间错误先核对设备</a><a class="level-2" href="#heading-2">域名与签发者分别检查</a><a class="level-2" href="#heading-3">用对照缩小故障范围</a><a class="level-2" href="#heading-4">恢复后再评价套餐</a></nav></aside>
+</div></div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/@oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026 一路發</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://www.yilufa.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.yilufa.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://www.yilufa.blog/pagefind/" base-url="https://www.yilufa.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/32c6bfa7-c046-438f-9d8a-2f1f2ff8238a/","pageTitle":"翻墙网络提示证书无效怎么办？先查时间、域名与签发者","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-d00e9689-b51b-486e-930d-7b10043e172c","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
