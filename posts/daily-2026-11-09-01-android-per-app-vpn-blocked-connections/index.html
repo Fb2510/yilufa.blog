@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安卓只有部分应用断网？检查 VPN 名单与阻断开关 · 一路發机场测评</title>
+<meta name="description" content="安卓 VPN 已连接，只有部分应用断网怎么办？核对允许名单、排除名单与阻止非 VPN 连接开关，重新连接后逐项验证翻墙网络路径，并按实际用量比较便宜机场套餐。">
+<meta name="keywords" content="安卓部分应用断网,VPN分应用名单,阻止不使用VPN的连接,翻墙网络">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/">
+<meta property="og:title" content="安卓只有部分应用断网？检查 VPN 名单与阻断开关">
+<meta property="og:description" content="安卓 VPN 已连接，只有部分应用断网怎么办？核对允许名单、排除名单与阻止非 VPN 连接开关，重新连接后逐项验证翻墙网络路径，并按实际用量比较便宜机场套餐。">
+<meta property="og:url" content="https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一路發机场测评">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg"><meta property="og:image:alt" content="一路發机场测评">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓只有部分应用断网？检查 VPN 名单与阻断开关">
+<meta name="twitter:description" content="安卓 VPN 已连接，只有部分应用断网怎么办？核对允许名单、排除名单与阻止非 VPN 连接开关，重新连接后逐项验证翻墙网络路径，并按实际用量比较便宜机场套餐。">
+<meta name="twitter:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<meta name="author" content="一路發"><meta property="article:published_time" content="2026-11-09T09:01:14&#43;08:00"><meta property="article:modified_time" content="2026-11-09T09:01:16&#43;08:00"><meta property="article:tag" content="线路稳定性"><meta property="article:tag" content="网络延迟"><meta property="article:tag" content="套餐价格"><meta property="article:tag" content="翻墙网络">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/#article","@type":"BlogPosting","author":{"@type":"Person","name":"一路發"},"dateModified":"2026-11-09T09:01:16+08:00","datePublished":"2026-11-09T09:01:14+08:00","description":"安卓 VPN 已连接，只有部分应用断网怎么办？核对允许名单、排除名单与阻止非 VPN 连接开关，重新连接后逐项验证翻墙网络路径，并按实际用量比较便宜机场套餐。","headline":"安卓只有部分应用断网？检查 VPN 名单与阻断开关","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/","@type":"WebPage"},"url":"https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.yilufa.blog/","name":"一路發机场测评","position":1},{"@type":"ListItem","item":"https://www.yilufa.blog/posts/daily-2026-11-09-01-android-per-app-vpn-blocked-connections/","name":"安卓只有部分应用断网？检查 VPN 名单与阻断开关","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/search.css"><script defer src="https://www.yilufa.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/layouts.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/effects.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/skin.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/reader.css">
+<link rel="icon" href="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/artalk.css"><script defer src="https://www.yilufa.blog/assets/theme/artalk.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/theme.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/reader.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/viewer.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://www.yilufa.blog/assets/theme/interactions.js"></script>
+
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W266BLZXHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W266BLZXHV');
+</script>
+
+<script defer src="https://www.yilufa.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-W266BLZXHV" data-site-hosts="www.yilufa.blog"></script></head>
+
+<body class="reader-page theme-ink article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://www.yilufa.blog/"><img src="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg" alt="" width="38" height="38"><span>一路發机场测评</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.yilufa.blog/">首页</a><a href="https://www.yilufa.blog/categories/airport-selection/">机场选购</a><a href="https://www.yilufa.blog/categories/network-testing/">测速与排障</a><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a><a href="https://www.yilufa.blog/categories/ai-service-guides/">AI 服务指南</a></nav>
+<a class="search-toggle" href="https://www.yilufa.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="ink-workspace theme-workspace theme-article">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.yilufa.blog/">一路發机场测评</a></li><li><span aria-current="page">安卓只有部分应用断网？检查 VPN 名单与阻断开关</span></li></ol></nav>
+
+
+<div class="ink-reading"><div class="ink-manuscript">
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>
+笔下随记</div>
+<h1 data-pagefind-meta="title">安卓只有部分应用断网？检查 VPN 名单与阻断开关</h1>
+<div class="metadata" data-pagefind-ignore><span>一路發</span><time datetime="2026-11-09T09:01:14&#43;08:00">2026-11-09</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a></div>
+</header>
+<div class="prose"><p>浏览器能打开网页，购物或聊天应用却一直转圈，先看应用是否被排除出 VPN。VPN 即虚拟专用网络，安卓允许客户端选择哪些应用进入这条通道。排查翻墙网络时，应先确定出问题的应用实际走哪条路径。</p>
+<h2 id="heading">先找到两个设置位置</h2>
+<p>本文适用于已配置 VPN、系统显示相关开关的 Android 14 及以上个人手机。先打开“设置→网络和互联网→VPN”，找不到时搜索 VPN，再进入当前连接的设置页。厂商界面可能不同，以实际选项为准。<a href="https://support.google.com/android/answer/9089766?hl=zh-Hans">系统设置指引</a></p>
+<p>接着按客户端的官方说明打开应用选择设置，截图保留原名单，核对勾选表示“仅允许选中应用”还是“排除选中应用”。</p>
+<h2 id="heading-1">名单决定谁进入通道</h2>
+<p>允许名单相当于入场名单，只有列入的应用能使用这条 VPN。排除名单则指定哪些应用不进入通道，其余应用可使用。安卓的这两种名单互斥。通常，未获准进入 VPN 的应用会使用原来的联网方式。<a href="https://developer.android.com/reference/android/net/VpnService.Builder">应用名单机制</a></p>
+<p>但若系统同时开启“阻止不使用 VPN 的连接”，被排除的应用，或未列入允许名单的应用，会失去连接。此时即使浏览器和节点都正常，名单外的应用仍可能打不开。这个开关限制了它们走普通连接的机会。<a href="https://developer.android.com/develop/connectivity/vpn#blocked-connections">阻断行为说明</a></p>
+<h2 id="heading-2">一次只调整一个应用</h2>
+<p>选一个稳定复现故障的应用，保持 Wi-Fi、节点和测试内容不变。若希望它经过 VPN，就把它加入允许名单，或从排除名单移除。修改后重新建立 VPN 连接，再打开同一个页面复测，无改善就还原。安卓要求在建立连接前设置名单，旧连接未必采用新选择。<a href="https://developer.android.com/develop/connectivity/vpn#per-app">名单更新要求</a></p>
+<p>若希望部分应用直连，则需同时考虑阻断开关的作用。关闭该开关，会允许不走 VPN 的应用使用原来的连接与出口。先明确自己的使用需求，再决定保留哪种组合。公司管理的设备若锁定选项，应交由管理员核对策略。</p>
+<h2 id="heading-3">用实际应用评价节点</h2>
+<p>测节点速度前，让测速工具与目标应用使用相同路径，再比较固定文件的下载耗时。线路稳定性看连续使用中的中断次数。网络延迟是数据往返的耗时，丢包表现则要结合探测目标、发包数和未响应次数判断，应用被阻断一次不能直接算成丢包。</p>
+<p>核对目标应用的实际出口及节点地区，再播放指定影片验证流媒体解锁，并完成一次问答检查海外 AI 服务可用性。平台的地区与账户条件也要分别满足，浏览器的成功结果不能代替应用内检查。</p>
+<p>比较便宜机场的套餐价格时，先统计真正经过节点的应用及流量，再核对套餐额度和计费倍率。把误排除的应用恢复到通道后，实际用量可能增加，应观察几天再选档，避免根据错误路径下的测速和流量记录购买长期套餐。</p>
+<p>资料核对日期为 2026 年 11 月 9 日。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.yilufa.blog/tags/line-stability/"># 线路稳定性</a><a href="https://www.yilufa.blog/tags/network-latency/"># 网络延迟</a><a href="https://www.yilufa.blog/tags/plan-pricing/"># 套餐价格</a><a href="https://www.yilufa.blog/tags/proxy-network/"># 翻墙网络</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.yilufa.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://www.yilufa.blog/posts/daily-2026-11-08-01-github-ssh-clone-port-timeout/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+</div><div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先找到两个设置位置</a><a class="level-2" href="#heading-1">名单决定谁进入通道</a><a class="level-2" href="#heading-2">一次只调整一个应用</a><a class="level-2" href="#heading-3">用实际应用评价节点</a></nav></aside>
+</div></div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026 一路發</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://www.yilufa.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.yilufa.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://www.yilufa.blog/pagefind/" base-url="https://www.yilufa.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/2d78a1cb-d34c-4991-9bac-f49aa1741d26/","pageTitle":"安卓只有部分应用断网？检查 VPN 名单与阻断开关","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-d00e9689-b51b-486e-930d-7b10043e172c","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
