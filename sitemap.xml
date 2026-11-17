@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.yilufa.blog/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/categories/ai-service-guides/</loc>
-    <lastmod>2026-11-07T06:36:31Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/categories/airport-review/</loc>
@@ -30,15 +30,15 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/page/2/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/page/3/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/posts/ai-service-availability-test/</loc>
@@ -246,7 +246,11 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/posts/daily-2026-11-16-01-streaming-concurrent-playback-limit/</loc>
-    <lastmod>2026-11-16T01:00:52Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yilufa.blog/posts/daily-2026-11-17-01-ai-context-window-input-limit/</loc>
+    <lastmod>2026-11-17T01:07:53Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/posts/streaming-unlock-quality-check/</loc>
@@ -258,7 +262,7 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/ai-availability/</loc>
-    <lastmod>2026-11-12T01:03:35Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/budget-airports/</loc>
@@ -266,15 +270,15 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/line-stability/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/line-stability/page/2/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/line-stability/page/3/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/network-latency/</loc>
@@ -286,7 +290,7 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/node-regions/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/node-speed/</loc>
@@ -302,23 +306,23 @@
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/plan-pricing/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/plan-pricing/page/2/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/proxy-network/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/proxy-network/page/2/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/proxy-network/page/3/</loc>
-    <lastmod>2026-11-16T01:01:18Z</lastmod>
+    <lastmod>2026-11-17T01:08:06Z</lastmod>
   </url>
   <url>
     <loc>https://www.yilufa.blog/tags/streaming-access/</loc>
