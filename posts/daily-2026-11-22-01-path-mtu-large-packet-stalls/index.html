@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小网页能打开，大文件却卡住？怎样排查路径 MTU · 一路發机场测评</title>
+<meta name="description" content="翻墙网络小网页能打开、大文件却卡住，如何检查路径 MTU？介绍 Windows 11 ping 的 IPv4 禁止分片和包长参数，解释超时的局限、代理路径差异及便宜机场升级前的验证方法。">
+<meta name="keywords" content="翻墙网络,路径MTU,大文件下载卡住,Windows 11 ping,需要分片,便宜机场套餐">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/">
+<meta property="og:title" content="小网页能打开，大文件却卡住？怎样排查路径 MTU">
+<meta property="og:description" content="翻墙网络小网页能打开、大文件却卡住，如何检查路径 MTU？介绍 Windows 11 ping 的 IPv4 禁止分片和包长参数，解释超时的局限、代理路径差异及便宜机场升级前的验证方法。">
+<meta property="og:url" content="https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一路發机场测评">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg"><meta property="og:image:alt" content="一路發机场测评">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小网页能打开，大文件却卡住？怎样排查路径 MTU">
+<meta name="twitter:description" content="翻墙网络小网页能打开、大文件却卡住，如何检查路径 MTU？介绍 Windows 11 ping 的 IPv4 禁止分片和包长参数，解释超时的局限、代理路径差异及便宜机场升级前的验证方法。">
+<meta name="twitter:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<meta name="author" content="一路發"><meta property="article:published_time" content="2026-11-22T09:00:30&#43;08:00"><meta property="article:modified_time" content="2026-11-22T09:00:41&#43;08:00"><meta property="article:tag" content="线路稳定性"><meta property="article:tag" content="网络延迟"><meta property="article:tag" content="丢包表现"><meta property="article:tag" content="套餐价格"><meta property="article:tag" content="翻墙网络">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/#article","@type":"BlogPosting","author":{"@type":"Person","name":"一路發"},"dateModified":"2026-11-22T09:00:41+08:00","datePublished":"2026-11-22T09:00:30+08:00","description":"翻墙网络小网页能打开、大文件却卡住，如何检查路径 MTU？介绍 Windows 11 ping 的 IPv4 禁止分片和包长参数，解释超时的局限、代理路径差异及便宜机场升级前的验证方法。","headline":"小网页能打开，大文件却卡住？怎样排查路径 MTU","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/","@type":"WebPage"},"url":"https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.yilufa.blog/","name":"一路發机场测评","position":1},{"@type":"ListItem","item":"https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/","name":"小网页能打开，大文件却卡住？怎样排查路径 MTU","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/search.css"><script defer src="https://www.yilufa.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/layouts.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/effects.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/skin.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/reader.css">
+<link rel="icon" href="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/artalk.css"><script defer src="https://www.yilufa.blog/assets/theme/artalk.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/theme.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/reader.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/viewer.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://www.yilufa.blog/assets/theme/interactions.js"></script>
+
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W266BLZXHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W266BLZXHV');
+</script>
+
+<script defer src="https://www.yilufa.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-W266BLZXHV" data-site-hosts="www.yilufa.blog"></script></head>
+
+<body class="reader-page theme-ink article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://www.yilufa.blog/"><img src="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg" alt="" width="38" height="38"><span>一路發机场测评</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.yilufa.blog/">首页</a><a href="https://www.yilufa.blog/categories/airport-selection/">机场选购</a><a href="https://www.yilufa.blog/categories/network-testing/">测速与排障</a><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a><a href="https://www.yilufa.blog/categories/ai-service-guides/">AI 服务指南</a></nav>
+<a class="search-toggle" href="https://www.yilufa.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="ink-workspace theme-workspace theme-article">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.yilufa.blog/">一路發机场测评</a></li><li><span aria-current="page">小网页能打开，大文件却卡住？怎样排查路径 MTU</span></li></ol></nav>
+
+
+<div class="ink-reading"><div class="ink-manuscript">
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>
+笔下随记</div>
+<h1 data-pagefind-meta="title">小网页能打开，大文件却卡住？怎样排查路径 MTU</h1>
+<div class="metadata" data-pagefind-ignore><span>一路發</span><time datetime="2026-11-22T09:00:30&#43;08:00">2026-11-22</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.yilufa.blog/categories/network-testing/">测速与排障</a></div>
+</header>
+<div class="prose"><p>翻墙网络能打开简单页面，下载文件却停住，不一定是套餐限速。文件会拆成许多包，文件大小不等于包长；这里检查途中允许通过的包长。本文用 Windows 11 自带工具收集线索，先定位问题范围，再决定是否需要服务方检查。</p>
+<h2 id="-mtu-">路径 MTU 是什么</h2>
+<p>最大传输单元简称 MTU，表示一段链路允许承载的最大 IP 包长。路径 MTU 是整条路径上各段限制的最小值。分片就是把包拆开。<a href="https://datatracker.ietf.org/doc/html/rfc1191">RFC 1191</a>说明，在 IPv4 中，发送端可通过“不分片”标记及路由器反馈，发现过大的数据包并调整大小。</p>
+<p>如果包太大的通知没有回来，发送端可能反复发送无法通过的大包。<a href="https://www.rfc-editor.org/rfc/rfc2923.html">RFC 2923</a>记录过这种现象：小探测和连接建立正常，大批量传输却失败。这是一种可能原因，不能凭一次下载卡住直接确诊。</p>
+<h2 id="heading">先确认探测走哪里</h2>
+<p>ping 使用用于诊断的 ICMP 消息，不会因为浏览器启用了系统代理，就自动沿同一代理链路测试。探测节点入口，只能反映到入口的路径，不能代表节点访问目标网站的全程。</p>
+<p>先记下设备、运营商、时间、节点地区与故障地址，地区需核对实际出口。若无法确认代理是否承载探测流量，把结果注明为本机到目标的观察，避免将直连结果当作机场结论。</p>
+<h2 id="heading-1">在电脑上比较不同包长</h2>
+<p>在 Windows 11 的命令提示符中输入 <code>ping /4 /f /l 1200 /n 4 目标IPv4地址</code>，将占位文字替换成已知会响应探测的实际地址，不要粘贴订阅链接。</p>
+<p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping">微软命令文档</a>说明，<code>/4</code> 指定 IPv4，<code>/f</code> 禁止途中分片，<code>/l</code> 设置数据部分的字节数，<code>/n</code> 设置次数。禁止分片参数仅适用于 IPv4；数据长度也不是完整 IP 包长。</p>
+<p>保持目标不变，再将示例中的 1200 改成 1472，保存两轮完整输出。这些只是比较用的负载长度，不是推荐写入客户端的 MTU 值，也不要求修改系统设置。</p>
+<h2 id="heading-2">结果怎样解释</h2>
+<p>如果明确提示需要分片，说明该次包长受到限制；较小包成功，较大包仅超时，则仍可能受到诊断消息过滤或响应策略影响。两种包长都无回复时，这个目标不适合单独用来判断包长门槛。</p>
+<p>保留原节点，再换同地区节点重做实际下载；也可固定节点更换本地接入，逐项比较。不要同时改包长、协议和出口后宣称找到原因，更不要把一个数值套给所有设备。</p>
+<h2 id="heading-3">回到体验与费用</h2>
+<p>节点速度另看持续下载量，线路稳定性看任务完成与中断。网络延迟记录同目标的往返时间；丢包表现注明包长和样本，四次探测不足以评价长期质量。</p>
+<p>流媒体解锁需实际播放目标影片，海外 AI 服务可用性需完成登录及常用任务。比较便宜机场的套餐价格时，先确认升级是否改变故障线路；增加流量额度不能修复包长反馈问题。将症状、时间和完整输出交给服务方，比盲目加购更有依据。</p>
+<p>资料核对日期为 2026 年 11 月 22 日。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.yilufa.blog/tags/line-stability/"># 线路稳定性</a><a href="https://www.yilufa.blog/tags/network-latency/"># 网络延迟</a><a href="https://www.yilufa.blog/tags/packet-loss/"># 丢包表现</a><a href="https://www.yilufa.blog/tags/plan-pricing/"># 套餐价格</a><a href="https://www.yilufa.blog/tags/proxy-network/"># 翻墙网络</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.yilufa.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://www.yilufa.blog/posts/daily-2026-11-21-01-video-dropped-frames-buffering/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+</div><div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-mtu-">路径 MTU 是什么</a><a class="level-2" href="#heading">先确认探测走哪里</a><a class="level-2" href="#heading-1">在电脑上比较不同包长</a><a class="level-2" href="#heading-2">结果怎样解释</a><a class="level-2" href="#heading-3">回到体验与费用</a></nav></aside>
+</div></div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026 一路發</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://www.yilufa.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.yilufa.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://www.yilufa.blog/pagefind/" base-url="https://www.yilufa.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/d2339981-6320-4afe-a1fb-17b2db759170/","pageTitle":"小网页能打开，大文件却卡住？怎样排查路径 MTU","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-d00e9689-b51b-486e-930d-7b10043e172c","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
