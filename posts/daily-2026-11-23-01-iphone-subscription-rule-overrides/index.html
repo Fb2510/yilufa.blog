@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iPhone 订阅更新后规则消失？用覆写保留自定义设置 · 一路發机场测评</title>
+<meta name="description" content="iPhone 更新订阅后自定义规则消失怎么办？按 Stash 官方资料了解覆写文件、列表合并顺序和远程导入方式，更新后验证翻墙网络分流，并核对节点体验与便宜机场套餐成本。">
+<meta name="keywords" content="翻墙网络,iPhone订阅更新,Stash覆写,自定义规则丢失,stoverride,便宜机场套餐">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/">
+<meta property="og:title" content="iPhone 订阅更新后规则消失？用覆写保留自定义设置">
+<meta property="og:description" content="iPhone 更新订阅后自定义规则消失怎么办？按 Stash 官方资料了解覆写文件、列表合并顺序和远程导入方式，更新后验证翻墙网络分流，并核对节点体验与便宜机场套餐成本。">
+<meta property="og:url" content="https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一路發机场测评">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg"><meta property="og:image:alt" content="一路發机场测评">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPhone 订阅更新后规则消失？用覆写保留自定义设置">
+<meta name="twitter:description" content="iPhone 更新订阅后自定义规则消失怎么办？按 Stash 官方资料了解覆写文件、列表合并顺序和远程导入方式，更新后验证翻墙网络分流，并核对节点体验与便宜机场套餐成本。">
+<meta name="twitter:image" content="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<meta name="author" content="一路發"><meta property="article:published_time" content="2026-11-23T09:01:56&#43;08:00"><meta property="article:modified_time" content="2026-11-23T09:02:00&#43;08:00"><meta property="article:tag" content="线路稳定性"><meta property="article:tag" content="节点地区"><meta property="article:tag" content="AI 服务可用性"><meta property="article:tag" content="套餐价格"><meta property="article:tag" content="翻墙网络">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/#article","@type":"BlogPosting","author":{"@type":"Person","name":"一路發"},"dateModified":"2026-11-23T09:02:00+08:00","datePublished":"2026-11-23T09:01:56+08:00","description":"iPhone 更新订阅后自定义规则消失怎么办？按 Stash 官方资料了解覆写文件、列表合并顺序和远程导入方式，更新后验证翻墙网络分流，并核对节点体验与便宜机场套餐成本。","headline":"iPhone 订阅更新后规则消失？用覆写保留自定义设置","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/","@type":"WebPage"},"url":"https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.yilufa.blog/","name":"一路發机场测评","position":1},{"@type":"ListItem","item":"https://www.yilufa.blog/posts/daily-2026-11-23-01-iphone-subscription-rule-overrides/","name":"iPhone 订阅更新后规则消失？用覆写保留自定义设置","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/search.css"><script defer src="https://www.yilufa.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/layouts.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/effects.css"><link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/skin.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/reader.css">
+<link rel="icon" href="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg">
+<link rel="stylesheet" href="https://www.yilufa.blog/assets/theme/artalk.css"><script defer src="https://www.yilufa.blog/assets/theme/artalk.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/theme.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/reader.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/viewer.js"></script>
+<script defer src="https://www.yilufa.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://www.yilufa.blog/assets/theme/interactions.js"></script>
+
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W266BLZXHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W266BLZXHV');
+</script>
+
+<script defer src="https://www.yilufa.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-W266BLZXHV" data-site-hosts="www.yilufa.blog"></script></head>
+
+<body class="reader-page theme-ink article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://www.yilufa.blog/"><img src="https://www.yilufa.blog/assets/media/eda4c637-9063-4791-b2b0-e4c66190c694.jpg" alt="" width="38" height="38"><span>一路發机场测评</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.yilufa.blog/">首页</a><a href="https://www.yilufa.blog/categories/airport-selection/">机场选购</a><a href="https://www.yilufa.blog/categories/network-testing/">测速与排障</a><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a><a href="https://www.yilufa.blog/categories/ai-service-guides/">AI 服务指南</a></nav>
+<a class="search-toggle" href="https://www.yilufa.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="ink-workspace theme-workspace theme-article">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.yilufa.blog/">一路發机场测评</a></li><li><span aria-current="page">iPhone 订阅更新后规则消失？用覆写保留自定义设置</span></li></ol></nav>
+
+
+<div class="ink-reading"><div class="ink-manuscript">
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>
+笔下随记</div>
+<h1 data-pagefind-meta="title">iPhone 订阅更新后规则消失？用覆写保留自定义设置</h1>
+<div class="metadata" data-pagefind-ignore><span>一路發</span><time datetime="2026-11-23T09:01:56&#43;08:00">2026-11-23</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.yilufa.blog/categories/network-tutorials/">网络教程</a></div>
+</header>
+<div class="prose"><p>iPhone 更新机场订阅后，自定义规则消失，可能是远程配置替换了手工修改。订阅负责获取服务方配置；覆写则是另外保存的一份局部修改。用好覆写，可以减少反复编辑原文件的工作，但仍要检查更新后的实际分流。</p>
+<h2 id="heading">先确认适用环境</h2>
+<p>本文以 Stash 为例。<a href="https://apps.apple.com/us/app/stash-rule-based-proxy/id1596063349">App Store 官方页面</a>核对到版本 5.0.0，iPhone 要求 iOS 16.0 或更高。下载认准开发者 STASH NETWORKS LIMITED；软件费用与机场套餐分开计算，上架情况以本人商店为准。</p>
+<p>准备一份已经能连接的配置，保留原件，并记录当前选择的节点。覆写只提供局部改动，不能代替含节点资料的完整配置。下面只演示普通域名覆写，不需要安装证书或加入脚本。</p>
+<h2 id="heading-1">把改动独立保存</h2>
+<p>YAML 是用缩进组织配置的文本格式。<a href="https://stash.wiki/configuration/override">官方覆写说明</a>规定文件后缀为 <code>.stoverride</code>。普通值会被替换，键值结构会合并，列表默认插到原列表前面；<code>#!replace</code> 则会整体替换对应结构，不能随手添加。</p>
+<p>将以下示例保存为 <code>custom.stoverride</code>，保留缩进：</p>
+<pre><code>name: 我的域名规则
+rules:
+  - DOMAIN,example.com,DIRECT
+</code></pre>
+<p>按 <a href="https://stash.wiki/rules/rule-types">规则文档</a>，DOMAIN 匹配完整域名。示例只让 example.com 直连，不包括它的子域名，也不是为所有服务推荐直连。需要代理时，应换成配置里真实存在的代理或策略组名称。</p>
+<h2 id="heading-2">使用官方导入方式</h2>
+<p>这一步需要该文件已有可访问的 HTTPS 地址，可由自己托管或从可信提供方取得，不要把含密码的完整订阅配置上传到公开位置。地址应直接返回文件正文，不能用需要登录的网页分享页代替。</p>
+<p><a href="https://stash.wiki/faq/url-schema">官方链接规范</a>给出的远程覆写入口形式为 <code>https://link.stash.ws/install-override/文件域名/文件路径</code>。替换成实际地址去掉协议部分后的域名和路径，在已安装 Stash 的手机上打开，按提示导入并启用。这里是格式示意，不能原样使用；返回 404 时先检查远程文件能否读取。</p>
+<h2 id="heading-3">更新后验证，而非只看开关</h2>
+<p>保持原配置被选中，先只启用这一份覆写并重新连接，向目标域名发起新请求，查看连接记录中的出站选择。再更新订阅，重复相同请求，确认规则仍然生效。</p>
+<p>多份覆写会从上到下依次合并，而规则也按顺序匹配。发生冲突时，逐份停用比较；若策略组被服务方改名，应修正引用，不能只看覆写开关仍开着就认定有效。导入失败先查缩进与后缀；启用后异常，先停用新增覆写，再用原配置复测。</p>
+<h2 id="heading-4">再看体验与套餐成本</h2>
+<p>固定任务检查节点速度，重复访问观察线路稳定性。网络延迟比较同一目标的往返等待；丢包表现需用路径明确的探测，规则未命中不能算作丢包。</p>
+<p>核对节点地区与实际出口，流媒体解锁用目标影片播放验证，海外 AI 服务可用性用登录和完整任务验证。比较便宜机场的套餐价格时，检查流量是否按预期分流；购买更多额度不能修复合并顺序或策略名称错误。</p>
+<p>资料核对日期为 2026 年 11 月 23 日。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.yilufa.blog/tags/line-stability/"># 线路稳定性</a><a href="https://www.yilufa.blog/tags/node-regions/"># 节点地区</a><a href="https://www.yilufa.blog/tags/ai-availability/"># AI 服务可用性</a><a href="https://www.yilufa.blog/tags/plan-pricing/"># 套餐价格</a><a href="https://www.yilufa.blog/tags/proxy-network/"># 翻墙网络</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.yilufa.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://www.yilufa.blog/posts/daily-2026-11-22-01-path-mtu-large-packet-stalls/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+</div><div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先确认适用环境</a><a class="level-2" href="#heading-1">把改动独立保存</a><a class="level-2" href="#heading-2">使用官方导入方式</a><a class="level-2" href="#heading-3">更新后验证，而非只看开关</a><a class="level-2" href="#heading-4">再看体验与套餐成本</a></nav></aside>
+</div></div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026 一路發</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://www.yilufa.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.yilufa.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://www.yilufa.blog/pagefind/" base-url="https://www.yilufa.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/53041734-d749-4b63-b95a-a6529c9856dd/","pageTitle":"iPhone 订阅更新后规则消失？用覆写保留自定义设置","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-d00e9689-b51b-486e-930d-7b10043e172c","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
